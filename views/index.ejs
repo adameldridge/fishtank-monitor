@@ -1,0 +1,103 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head><% include partials/head %></head>
+
+<body class="container">
+  
+  <!--HEADER-->
+  <header><% include partials/header %></header>
+
+  <!--MAIN BODY-->
+  <main>
+
+    <!--OVERVIEW SECTION-->   
+    <div class="row">
+
+      <div class="col-md-12 dash-section">
+        <h3>Overview</h3>
+      </div>
+
+      <!--WATER TEMP-->
+      <div class="col-md-3 dash-panel">
+        <div class="panel panel-info">
+          <div class="panel-heading">WATER TEMP</div>
+          <div class="panel-body"><%= currentWaterTemp %>&deg;C</div>
+        </div>
+      </div>
+
+      <!--AMBIENT TEMP-->
+      <div class="col-md-3 dash-panel">
+        <div class="panel panel-info">
+          <div class="panel-heading">AMBIENT TEMP</div>
+          <div class="panel-body">TO DO</div>
+        </div>
+      </div>
+
+      <!--LIGHT STATUS-->
+      <div class="col-md-3 dash-panel">
+        <div class="panel panel-info">
+          <div class="panel-heading">LIGHT STATUS</div>
+          <div class="panel-body"><%= lightStatus %></div>
+        </div>
+      </div>
+
+      <!--AIR PUMP STATUS-->
+      <div class="col-md-3 dash-panel">
+        <div class="panel panel-info">
+          <div class="panel-heading">AIR PUMP STATUS</div>
+          <div class="panel-body"><%= airPumpStatus %></div>
+        </div>
+      </div>
+    </div>
+    
+    <!--DETAILS SECTION-->
+    <div class="row">
+
+      <div class="col-md-12 dash-section">
+        <h3>Details</h3>
+      </div>
+
+      <!--WATER TEMP DETAILS-->
+      <div class="col-md-4">
+        <div class="panel panel-default">
+        <div class="panel-heading"><strong>WATER TEMP HISTORY</strong></div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Temp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i < tempHistory.length; i++) { %>
+                <tr>
+                  <td><%= tempHistory[i].date %></td>
+		  <td><%= tempHistory[i].time %></td>
+                  <td><%= tempHistory[i].temp %>&deg;C</td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!--AMBIENT TEMP DETAILS-->
+      <div class="col-md-4 ml-auto">
+        Ambient Temp Table
+      </div>
+      
+      <!--TBC DETAILS-->
+      <div class="col-md-4 ml-auto">
+        TBC
+      </div>
+
+    </div> <!--End of row-->
+  </main>
+  
+  <!--FOOTER-->
+  <footer><% include partials/footer %></footer>
+
+</body>
+</html>
